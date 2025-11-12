@@ -1,0 +1,167 @@
+/* Fonts + Core */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0b0f2f;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Wrapping everything */
+.page-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 8px 0 30px;
+  opacity: 0.8;
+}
+
+/* ----------------------------------
+   MOVING ANIMATED BACKGROUND PATTERN
+-------------------------------------*/
+.moving-bg {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: 
+    radial-gradient(circle, rgba(0,255,255,0.08) 2px, transparent 5px) 0 0 / 40px 40px,
+    radial-gradient(circle, rgba(0,150,255,0.08) 2px, transparent 5px) 20px 20px / 60px 60px;
+  animation: moveBG 40s linear infinite;
+  opacity: 0.45;
+  z-index: 0;
+}
+
+@keyframes moveBG {
+  0%   { transform: translate(0,0); }
+  100% { transform: translate(200px,300px); }
+}
+
+/* ----------------------------------
+   FORM LAYOUT
+-------------------------------------*/
+.form-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.glass-card {
+  width: 320px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 0 25px rgba(0,255,255,0.15);
+  border: 1px solid rgba(0,255,255,0.2);
+  backdrop-filter: blur(8px);
+}
+
+/* Text Inputs */
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  outline: none;
+  margin-bottom: 14px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.toggle {
+  position: absolute;
+  right: 12px;
+  top: 13px;
+  cursor: pointer;
+  color: #00eaff;
+  font-size: 14px;
+}
+
+/* ----------------------------------
+   NEON BUTTONS
+-------------------------------------*/
+.neon-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00eaff, #7b61ff);
+  box-shadow: 0 0 12px #00eaff, 0 0 20px #7b61ff;
+  transition: 0.2s ease;
+  color: #000;
+}
+
+.neon-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 20px #00eaff, 0 0 30px #7b61ff;
+}
+
+/* Admin link */
+.admin-link a {
+  color: #00eaff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.admin-link a:hover {
+  text-shadow: 0 0 10px #00eaff;
+}
+
+/* Notification Banner */
+#notify {
+  position: fixed;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.4s ease;
+  opacity: 0;
+  z-index: 99;
+}
+
+#notify.show {
+  top: 20px;
+  opacity: 1;
+}
+
+#notify.success {
+  background: rgba(0,255,157,0.18);
+  border: 1px solid #00ff9d;
+}
+
+#notify.error {
+  background: rgba(255,0,76,0.18);
+  border: 1px solid #ff006f;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .form-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
